@@ -5,7 +5,6 @@ import {
   BookOpen,
   MessageCircle,
   ChevronDown,
-  ChevronUp,
 } from "lucide-react";
 import { debug } from "@/lib/utils";
 
