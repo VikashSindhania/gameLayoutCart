@@ -1,19 +1,12 @@
-/* Import Tailwind CSS base, components, and utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import Google Fonts for gaming aesthetic */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-/* CSS Variables for theming and design system */
 :root {
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
   --primary: 221.2 83.2% 53.3%;
   --primary-foreground: 210 40% 98%;
   --secondary: 210 40% 96%;
@@ -33,10 +26,6 @@
 .dark {
   --background: 222.2 84% 4.9%;
   --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
   --primary: 217.2 91.2% 59.8%;
   --primary-foreground: 222.2 84% 4.9%;
   --secondary: 217.2 32.6% 17.5%;
@@ -58,59 +47,19 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground;
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-display font-semibold tracking-tight;
-  }
-
-  a {
-    @apply transition-all duration-200 ease-in-out;
-  }
-
-  *:focus {
-    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
-  }
-
-  ::selection {
-    @apply bg-primary-500 text-white;
-  }
-
-  ::-webkit-scrollbar {
-    @apply w-2;
-  }
-
-  ::-webkit-scrollbar-track {
-    @apply bg-muted;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-primary-500 rounded-full;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-400;
   }
 }
 
 @layer components {
   .btn-gaming {
-    @apply relative overflow-hidden px-6 py-3 font-display font-semibold text-white 
+    @apply relative overflow-hidden px-6 py-3 font-semibold text-white 
            bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg
            transition-all duration-300 ease-out
-           hover:scale-105 hover:shadow-gaming
+           hover:scale-105
            focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2
            disabled:opacity-50 disabled:cursor-not-allowed;
   }
@@ -118,118 +67,7 @@
   .card-gaming {
     @apply relative overflow-hidden bg-card rounded-xl border border-border
            transition-all duration-300 ease-out
-           hover:scale-105 hover:shadow-gaming
+           hover:scale-105
            cursor-pointer;
-  }
-
-  .input-gaming {
-    @apply w-full px-4 py-3 bg-background border border-input rounded-lg
-           font-body text-foreground placeholder:text-muted-foreground
-           focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent
-           transition-all duration-200 ease-out;
-  }
-
-  .badge-gaming {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
-           bg-primary-100 text-primary-700 border border-primary-200;
-  }
-
-  .spinner-gaming {
-    @apply animate-spin rounded-full border-2 border-muted border-t-primary;
-  }
-
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent;
-  }
-}
-
-@layer utilities {
-  .bg-gaming-pattern {
-    background-image:
-      radial-gradient(
-        circle at 25% 25%,
-        rgba(0, 255, 65, 0.1) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 75% 75%,
-        rgba(255, 0, 128, 0.1) 0%,
-        transparent 50%
-      );
-  }
-
-  .text-shadow-gaming {
-    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
-  }
-
-  .border-gradient {
-    border-image: linear-gradient(45deg, #00ff41, #ff0080) 1;
-  }
-
-  .mask-gradient {
-    mask: linear-gradient(45deg, transparent, white, transparent);
-    -webkit-mask: linear-gradient(45deg, transparent, white, transparent);
-  }
-
-  .backdrop-gaming {
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-  }
-
-  .animate-delay-100 {
-    animation-delay: 100ms;
-  }
-  .animate-delay-200 {
-    animation-delay: 200ms;
-  }
-  .animate-delay-300 {
-    animation-delay: 300ms;
-  }
-  .animate-delay-400 {
-    animation-delay: 400ms;
-  }
-  .animate-delay-500 {
-    animation-delay: 500ms;
-  }
-
-  .container-responsive {
-    container-type: inline-size;
-  }
-
-  .aspect-game {
-    aspect-ratio: 16 / 9;
-  }
-
-  .aspect-game-square {
-    aspect-ratio: 1 / 1;
-  }
-}
-
-@media print {
-  .no-print {
-    display: none !important;
-  }
-
-  .print-break {
-    page-break-before: always;
-  }
-}
-
-@media (prefers-contrast: high) {
-  :root {
-    --border: 0 0% 0%;
-    --muted: 0 0% 100%;
-    --muted-foreground: 0 0% 0%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }
