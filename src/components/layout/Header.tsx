@@ -1,30 +1,29 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Import icons
-import { 
-  Search, 
-  Menu, 
-  X, 
-  User, 
-  Heart, 
+import {
+  Search,
+  Menu,
+  X,
+  User,
+  Heart,
   Settings,
   Sun,
   Moon,
-  Gamepad2
-} from 'lucide-react';
+  Gamepad2,
+} from "lucide-react";
 
 // Import utilities
-import { cn, debug, isMobile } from '@/lib/utils';
+import { cn, debug, isMobile } from "@/lib/utils";
 
 /**
  * Header component with navigation and search functionality
  * Features responsive design, dark mode toggle, and gaming aesthetic
- * 
+ *
  * @returns The header component with full navigation
  */
 export default function Header() {
@@ -33,14 +32,14 @@ export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Debug logging
-  debug('Header: Rendering header component', { 
-    isMenuOpen, 
-    isSearchOpen, 
-    isDarkMode, 
-    isScrolled 
+  debug("Header: Rendering header component", {
+    isMenuOpen,
+    isSearchOpen,
+    isDarkMode,
+    isScrolled,
   });
 
   // Handle scroll effect for header styling
@@ -49,22 +48,22 @@ export default function Header() {
       setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Handle dark mode toggle
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark');
-    debug('Header: Dark mode toggled', { isDarkMode: !isDarkMode });
+    document.documentElement.classList.toggle("dark");
+    debug("Header: Dark mode toggled", { isDarkMode: !isDarkMode });
   };
 
   // Handle search submission
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      debug('Header: Search submitted', { query: searchQuery });
+      debug("Header: Search submitted", { query: searchQuery });
       // TODO: Implement search functionality
       setIsSearchOpen(false);
     }
@@ -72,27 +71,28 @@ export default function Header() {
 
   // Navigation items
   const navigationItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Games', href: '/games' },
-    { label: 'Categories', href: '/categories' },
-    { label: 'Trending', href: '/trending' },
-    { label: 'New', href: '/new' },
-    { label: 'About', href: '/about' },
+    { label: "Home", href: "/" },
+    { label: "Games", href: "/games" },
+    { label: "Categories", href: "/categories" },
+    { label: "Trending", href: "/trending" },
+    { label: "New", href: "/new" },
+    { label: "About", href: "/about" },
   ];
 
   return (
-    <header className={cn(
-      'sticky top-0 z-50 w-full transition-all duration-300',
-      isScrolled 
-        ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-lg' 
-        : 'bg-transparent'
-    )}>
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full transition-all duration-300",
+        isScrolled
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-lg"
+          : "bg-transparent"
+      )}
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          
           {/* Logo */}
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="flex items-center space-x-2 group"
             aria-label="AwesomeCart Gaming - Home"
           >
@@ -120,7 +120,6 @@ export default function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4">
-            
             {/* Search Button */}
             <button
               onClick={() => setIsSearchOpen(!isSearchOpen)}
@@ -134,9 +133,15 @@ export default function Header() {
             <button
               onClick={toggleDarkMode}
               className="p-2 text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-200"
-              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+              aria-label={
+                isDarkMode ? "Switch to light mode" : "Switch to dark mode"
+              }
             >
-              {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {isDarkMode ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
             </button>
 
             {/* User Menu */}
@@ -144,7 +149,7 @@ export default function Header() {
               <button className="p-2 text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-200">
                 <User className="w-5 h-5" />
               </button>
-              
+
               {/* User Dropdown */}
               <div className="absolute right-0 top-full mt-2 w-48 bg-card border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="py-2">
@@ -180,7 +185,11 @@ export default function Header() {
             className="lg:hidden p-2 text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-200"
             aria-label="Toggle mobile menu"
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
 
@@ -189,7 +198,7 @@ export default function Header() {
           {isSearchOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               className="py-4"
             >
@@ -218,7 +227,7 @@ export default function Header() {
           {isMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               className="lg:hidden border-t border-border"
             >
@@ -233,7 +242,7 @@ export default function Header() {
                     {item.label}
                   </Link>
                 ))}
-                
+
                 {/* Mobile Actions */}
                 <div className="px-4 py-2 border-t border-border mt-4">
                   <div className="flex items-center justify-between">
@@ -241,10 +250,14 @@ export default function Header() {
                       onClick={toggleDarkMode}
                       className="flex items-center px-4 py-2 text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-200"
                     >
-                      {isDarkMode ? <Sun className="w-4 h-4 mr-2" /> : <Moon className="w-4 h-4 mr-2" />}
-                      {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+                      {isDarkMode ? (
+                        <Sun className="w-4 h-4 mr-2" />
+                      ) : (
+                        <Moon className="w-4 h-4 mr-2" />
+                      )}
+                      {isDarkMode ? "Light Mode" : "Dark Mode"}
                     </button>
-                    
+
                     <button
                       onClick={() => setIsSearchOpen(!isSearchOpen)}
                       className="flex items-center px-4 py-2 text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-200"
@@ -261,4 +274,4 @@ export default function Header() {
       </div>
     </header>
   );
-} 
+}
