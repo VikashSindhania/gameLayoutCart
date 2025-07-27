@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 // Import utilities
-import { cn, debug, isMobile } from "@/lib/utils";
+import { cn, debug } from "@/lib/utils";
 
 /**
  * Header component with navigation and search functionality
