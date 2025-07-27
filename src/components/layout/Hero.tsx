@@ -53,9 +53,9 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gaming-dark via-gaming-dark-gray to-gaming-light-gray">
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800">
         {/* Animated background patterns */}
-        <div className="absolute inset-0 bg-gaming-pattern opacity-20"></div>
+        <div className="absolute inset-0 bg-gaming-pattern opacity-30"></div>
 
         {/* Floating particles effect */}
         <div className="absolute inset-0">
@@ -103,7 +103,7 @@ export default function Hero() {
           {/* Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed"
           >
             Discover thousands of free online games. From action-packed
             adventures to brain-teasing puzzles, find your next favorite game
@@ -150,7 +150,7 @@ export default function Hero() {
                     {stat.value}
                   </span>
                 </div>
-                <p className="text-foreground/70 text-sm md:text-base">
+                <p className="text-gray-400 text-sm md:text-base">
                   {stat.label}
                 </p>
               </motion.div>
@@ -169,12 +169,12 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-primary rounded-full flex justify-center"
+          className="w-6 h-10 border-2 border-gaming-neon rounded-full flex justify-center"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-primary rounded-full mt-2"
+            className="w-1 h-3 bg-gaming-neon rounded-full mt-2"
           />
         </motion.div>
         <p className="text-foreground/60 text-sm mt-2 text-center">

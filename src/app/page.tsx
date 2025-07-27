@@ -59,7 +59,7 @@ export default function HomePage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gaming-dark via-gaming-dark-gray to-gaming-light-gray bg-gaming-pattern">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 bg-gaming-pattern">
       {/* Header Navigation */}
       <Header />
 
