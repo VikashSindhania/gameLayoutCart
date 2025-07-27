@@ -175,8 +175,8 @@
   }
 
   .glow-effect::before {
-    @apply absolute inset-0 rounded-lg bg-gradient-to-r from-primary-500/20 to-secondary-500/20
-           blur-xl opacity-0 transition-opacity duration-300 ease-out;
+    @apply absolute inset-0 rounded-lg bg-gradient-to-r from-primary-500/20 to-secondary-500/20;
+    @apply blur-xl opacity-0 transition-opacity duration-300 ease-out;
     content: "";
   }
 
