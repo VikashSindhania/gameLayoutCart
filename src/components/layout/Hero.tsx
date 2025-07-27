@@ -1,21 +1,23 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { Play, Star, Users, Zap } from 'lucide-react';
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { Play, Star, Users, Zap } from "lucide-react";
 
 // Import utilities
-import { debug } from '@/lib/utils';
+import { debug } from "@/lib/utils";
 
 /**
  * Hero section component
  * Main landing section with gaming aesthetic and call-to-action
- * 
+ *
  * @returns The hero section component
  */
 export default function Hero() {
   // Debug logging
-  debug('Hero: Rendering hero component', { timestamp: new Date().toISOString() });
+  debug("Hero: Rendering hero component", {
+    timestamp: new Date().toISOString(),
+  });
 
   // Animation variants for staggered animations
   const containerVariants = {
@@ -36,16 +38,16 @@ export default function Hero() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut',
+        ease: "easeOut",
       },
     },
   };
 
   // Stats data
   const stats = [
-    { icon: Users, value: '50K+', label: 'Active Players' },
-    { icon: Star, value: '4.8', label: 'Average Rating' },
-    { icon: Zap, value: '1000+', label: 'Games Available' },
+    { icon: Users, value: "50K+", label: "Active Players" },
+    { icon: Star, value: "4.8", label: "Average Rating" },
+    { icon: Zap, value: "1000+", label: "Games Available" },
   ];
 
   return (
@@ -54,7 +56,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-br from-gaming-dark via-gaming-dark-gray to-gaming-light-gray">
         {/* Animated background patterns */}
         <div className="absolute inset-0 bg-gaming-pattern opacity-20"></div>
-        
+
         {/* Floating particles effect */}
         <div className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
@@ -90,10 +92,10 @@ export default function Hero() {
           {/* Main Heading */}
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-7xl lg:text-8xl font-gaming font-bold mb-6 text-gradient leading-tight"
+            className="text-5xl md:text-7xl lg:text-8xl font-gaming font-bold mb-6 text-gradient leading-tight text-shadow-gaming"
           >
             Play
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gaming-neon via-gaming-electric to-gaming-cyber">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gaming-neon via-gaming-electric to-gaming-cyber animate-pulse-glow">
               Amazing Games
             </span>
           </motion.h1>
@@ -103,8 +105,9 @@ export default function Hero() {
             variants={itemVariants}
             className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Discover thousands of free online games. From action-packed adventures to 
-            brain-teasing puzzles, find your next favorite game and start playing instantly!
+            Discover thousands of free online games. From action-packed
+            adventures to brain-teasing puzzles, find your next favorite game
+            and start playing instantly!
           </motion.p>
 
           {/* Call to Action Buttons */}
@@ -114,15 +117,15 @@ export default function Hero() {
           >
             <Link
               href="/games"
-              className="btn-gaming text-lg px-8 py-4 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transform hover:scale-105 transition-all duration-300 shadow-gaming"
+              className="btn-gaming glow-effect text-lg px-8 py-4 bg-gradient-to-r from-gaming-neon to-gaming-electric hover:from-gaming-neon/90 hover:to-gaming-electric/90 transform hover:scale-105 transition-all duration-300 shadow-gaming animate-pulse-glow"
             >
               <Play className="w-5 h-5 mr-2" />
               Start Playing Now
             </Link>
-            
+
             <Link
               href="/categories"
-              className="btn-gaming text-lg px-8 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              className="btn-gaming text-lg px-8 py-4 border-2 border-gaming-cyber text-gaming-cyber hover:bg-gaming-cyber hover:text-white transition-all duration-300 hover:shadow-neon"
             >
               Browse Categories
             </Link>
@@ -142,8 +145,8 @@ export default function Hero() {
                 className="text-center group"
               >
                 <div className="flex items-center justify-center mb-2">
-                  <stat.icon className="w-6 h-6 text-primary mr-2 group-hover:scale-110 transition-transform duration-200" />
-                  <span className="text-2xl md:text-3xl font-gaming font-bold text-gradient">
+                  <stat.icon className="w-6 h-6 text-gaming-neon mr-2 group-hover:scale-110 transition-transform duration-200 animate-glow" />
+                  <span className="text-2xl md:text-3xl font-gaming font-bold text-gradient text-shadow-gaming">
                     {stat.value}
                   </span>
                 </div>
@@ -186,4 +189,4 @@ export default function Hero() {
       <div className="absolute top-1/3 right-1/4 w-20 h-20 bg-gaming-electric/10 rounded-full blur-2xl"></div>
     </section>
   );
-} 
+}

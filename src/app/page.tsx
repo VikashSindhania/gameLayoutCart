@@ -59,7 +59,7 @@ export default function HomePage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gaming-dark via-gaming-dark-gray to-gaming-light-gray">
+    <div className="min-h-screen bg-gradient-to-br from-gaming-dark via-gaming-dark-gray to-gaming-light-gray bg-gaming-pattern">
       {/* Header Navigation */}
       <Header />
 
@@ -71,7 +71,7 @@ export default function HomePage() {
         {/* Game Categories */}
         <section className="py-16 px-4">
           <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-gaming font-bold text-center mb-12 text-gradient">
+            <h2 className="text-3xl md:text-4xl font-gaming font-bold text-center mb-12 text-gradient text-shadow-gaming">
               Game Categories
             </h2>
             <Suspense
@@ -87,7 +87,7 @@ export default function HomePage() {
         {/* Featured Games */}
         <section className="py-16 px-4 bg-gaming-pattern">
           <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-gaming font-bold text-center mb-12 text-gradient">
+            <h2 className="text-3xl md:text-4xl font-gaming font-bold text-center mb-12 text-gradient text-shadow-gaming">
               Featured Games
             </h2>
             <Suspense
@@ -103,7 +103,7 @@ export default function HomePage() {
         {/* Trending Games */}
         <section className="py-16 px-4">
           <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-gaming font-bold text-center mb-12 text-gradient">
+            <h2 className="text-3xl md:text-4xl font-gaming font-bold text-center mb-12 text-gradient text-shadow-gaming">
               Trending Now
             </h2>
             <Suspense
@@ -119,7 +119,7 @@ export default function HomePage() {
         {/* New Games */}
         <section className="py-16 px-4 bg-gaming-pattern">
           <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-gaming font-bold text-center mb-12 text-gradient">
+            <h2 className="text-3xl md:text-4xl font-gaming font-bold text-center mb-12 text-gradient text-shadow-gaming">
               New Releases
             </h2>
             <Suspense
