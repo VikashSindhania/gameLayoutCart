@@ -1,0 +1,23 @@
+# Robots.txt for AwesomeCart Gaming
+# This file tells search engines which pages they can crawl
+
+User-agent: *
+Allow: /
+
+# Allow crawling of all pages
+Allow: /games/
+Allow: /categories/
+Allow: /about/
+Allow: /contact/
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://awesomecart-gaming.com/sitemap.xml
+
+# Crawl delay (optional - be respectful to servers)
+Crawl-delay: 1 

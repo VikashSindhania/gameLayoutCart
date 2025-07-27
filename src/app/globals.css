@@ -1,0 +1,291 @@
+/* Import Tailwind CSS base, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts for gaming aesthetic */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap");
+
+/* CSS Variables for theming and design system */
+/* These variables allow for easy theme switching and consistent styling */
+:root {
+  /* Color system - Light theme */
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222.2 84% 4.9%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96%;
+  --accent-foreground: 222.2 84% 4.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+  --radius: 0.5rem;
+
+  /* Gaming-specific colors */
+  --gaming-neon: 120 100% 50%;
+  --gaming-cyber: 330 100% 50%;
+  --gaming-electric: 195 100% 50%;
+  --gaming-plasma: 15 100% 60%;
+}
+
+/* Dark theme variables */
+/* These provide a gaming-appropriate dark theme */
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 84% 4.9%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 224.3 76.3% 94.1%;
+}
+
+/* Base styles for consistent typography and spacing */
+@layer base {
+  /* Reset and base element styles */
+  * {
+    @apply border-border;
+  }
+
+  /* Body styles with gaming font and smooth scrolling */
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+    /* Enable smooth scrolling for better UX */
+    scroll-behavior: smooth;
+    /* Optimize font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Heading styles with gaming aesthetic */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+
+  /* Link styles with gaming hover effects */
+  a {
+    @apply transition-all duration-200 ease-in-out;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Selection styles for gaming aesthetic */
+  ::selection {
+    @apply bg-primary-500 text-white;
+  }
+
+  /* Scrollbar styling for gaming aesthetic */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-500 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-400;
+  }
+}
+
+/* Component styles for reusable UI elements */
+@layer components {
+  /* Gaming button component with hover effects */
+  .btn-gaming {
+    @apply relative overflow-hidden px-6 py-3 font-display font-semibold text-white 
+           bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg
+           transition-all duration-300 ease-out
+           hover:scale-105 hover:shadow-gaming
+           focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Gaming card component with hover animations */
+  .card-gaming {
+    @apply relative overflow-hidden bg-card rounded-xl border border-border
+           transition-all duration-300 ease-out
+           hover:scale-105 hover:shadow-gaming
+           cursor-pointer;
+  }
+
+  /* Gaming input component */
+  .input-gaming {
+    @apply w-full px-4 py-3 bg-background border border-input rounded-lg
+           font-body text-foreground placeholder:text-muted-foreground
+           focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent
+           transition-all duration-200 ease-out;
+  }
+
+  /* Gaming badge component */
+  .badge-gaming {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+           bg-primary-100 text-primary-700 border border-primary-200;
+  }
+
+  /* Gaming loading spinner */
+  .spinner-gaming {
+    @apply animate-spin rounded-full border-2 border-muted border-t-primary;
+  }
+
+  /* Gaming gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent;
+  }
+
+  /* Gaming glow effect */
+  .glow-effect {
+    @apply relative;
+  }
+
+  .glow-effect::before {
+    @apply content-[''] absolute inset-0 rounded-lg bg-gradient-to-r from-primary-500/20 to-secondary-500/20
+           blur-xl opacity-0 transition-opacity duration-300 ease-out;
+  }
+
+  .glow-effect:hover::before {
+    @apply opacity-100;
+  }
+}
+
+/* Utility styles for specific gaming effects */
+@layer utilities {
+  /* Gaming background patterns */
+  .bg-gaming-pattern {
+    background-image:
+      radial-gradient(
+        circle at 25% 25%,
+        rgba(0, 255, 65, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        rgba(255, 0, 128, 0.1) 0%,
+        transparent 50%
+      );
+  }
+
+  /* Gaming text shadow */
+  .text-shadow-gaming {
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+  }
+
+  /* Gaming border gradient */
+  .border-gradient {
+    border-image: linear-gradient(45deg, #00ff41, #ff0080) 1;
+  }
+
+  /* Gaming mask for text effects */
+  .mask-gradient {
+    mask: linear-gradient(45deg, transparent, white, transparent);
+    -webkit-mask: linear-gradient(45deg, transparent, white, transparent);
+  }
+
+  /* Gaming backdrop blur */
+  .backdrop-gaming {
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+  }
+
+  /* Gaming animation delays for staggered effects */
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
+/* Responsive design utilities */
+@layer utilities {
+  /* Container queries for better responsive design */
+  .container-responsive {
+    container-type: inline-size;
+  }
+
+  /* Aspect ratio utilities for game thumbnails */
+  .aspect-game {
+    aspect-ratio: 16 / 9;
+  }
+
+  .aspect-game-square {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* Print styles for better printing experience */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-break {
+    page-break-before: always;
+  }
+}
+
+/* High contrast mode support for accessibility */
+@media (prefers-contrast: high) {
+  :root {
+    --border: 0 0% 0%;
+    --muted: 0 0% 100%;
+    --muted-foreground: 0 0% 0%;
+  }
+}
+
+/* Reduced motion support for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
